@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F5F0">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <!-- TRẠNG THÁI -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="@drawable/card"
+            android:padding="14dp" android:layout_marginBottom="12dp">
+
+            <TextView android:id="@+id/tvServer"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textSize="18sp" android:textStyle="bold" android:text="● ..." />
+
+            <TextView android:id="@+id/tvAddress"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:textSize="20sp" android:textStyle="bold"
+                android:textColor="#2E2013" android:textIsSelectable="true" />
+
+            <TextView android:id="@+id/tvPrinter"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" android:textSize="15sp" android:textStyle="bold" />
+
+            <TextView android:id="@+id/tvCounts"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:textSize="14sp" android:textColor="#6E685D" />
+
+            <TextView android:id="@+id/tvError"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp" android:textSize="13sp" android:textColor="#B23A22"
+                android:visibility="gone" />
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" android:orientation="horizontal">
+                <Button android:id="@+id/btnStart" android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content" android:text="Bật dịch vụ in" />
+                <Button android:id="@+id/btnStop" android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content" android:text="Tắt" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button android:id="@+id/btnChoose" android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content" android:text="Chọn máy in" />
+                <Button android:id="@+id/btnPermission" android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content" android:text="Cấp quyền USB" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- IN THỬ -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="@drawable/card"
+            android:padding="14dp" android:layout_marginBottom="12dp">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="IN THỬ" android:textStyle="bold" android:textColor="#6E685D" />
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button android:id="@+id/btnTestRaw" android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content" android:text="1. Chữ trần" />
+                <Button android:id="@+id/btnTestText" android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content" android:text="2. Chữ ESC/POS" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button android:id="@+id/btnTestGsv0" android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content" android:text="3. Ảnh GS v 0" />
+                <Button android:id="@+id/btnTestEscStar" android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content" android:text="4. Ảnh ESC *" />
+            </LinearLayout>
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp" android:textSize="12sp" android:textColor="#6E685D"
+                android:text="Ảnh in đúng: vạch đen, chữ “ẢNH OK · Tiếng Việt có dấu”, ô cờ." />
+        </LinearLayout>
+
+        <!-- CÀI ĐẶT -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="@drawable/card"
+            android:padding="14dp" android:layout_marginBottom="12dp">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="CÀI ĐẶT" android:textStyle="bold" android:textColor="#6E685D" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:text="Cổng nhận lệnh in (mặc định 9100)" />
+            <EditText android:id="@+id/etPort" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:inputType="number" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Khúc dữ liệu gửi xuống máy in (byte, máy in yếu để 512)" />
+            <EditText android:id="@+id/etChunk" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:inputType="number" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Khổ giấy cho bản in thử ảnh" />
+            <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton android:id="@+id/rb384" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="58mm (384)" />
+                <RadioButton android:id="@+id/rb576" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="80mm (576)" />
+            </RadioGroup>
+
+            <CheckBox android:id="@+id/cbCut" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Cắt giấy sau bản in thử" />
+            <CheckBox android:id="@+id/cbAutostart" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Tự bật khi khởi động máy POS" />
+            <CheckBox android:id="@+id/cbKeepOpen" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giữ kết nối máy in (nhanh hơn, nhưng có thể làm FABi không in được)" />
+
+            <Button android:id="@+id/btnSave" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="Lưu cài đặt" />
+            <Button android:id="@+id/btnBattery" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="Mở cài đặt pin (chọn Không hạn chế)" />
+        </LinearLayout>
+
+        <!-- NHẬT KÝ -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="@drawable/card"
+            android:padding="14dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content" android:text="NHẬT KÝ"
+                    android:textStyle="bold" android:textColor="#6E685D" />
+                <Button android:id="@+id/btnClearLog" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="Xoá" />
+            </LinearLayout>
+
+            <TextView android:id="@+id/tvLog" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:typeface="monospace"
+                android:textSize="12sp" android:textIsSelectable="true" android:textColor="#332E27" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
